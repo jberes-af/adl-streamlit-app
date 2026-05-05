@@ -1,17 +1,21 @@
 # src/gui/streamlit/app.py
 
 from pathlib import Path
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.main.composition_root import app_container
 from src.gui.streamlit.auth.login_form import LoginForm
 from src.gui.streamlit.routing.router import render_router
 
 import streamlit as st
-import sys
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(PROJECT_ROOT))
+# PROJECT_ROOT = Path(__file__).resolve().parents[3]
+# sys.path.insert(0, str(PROJECT_ROOT))
 
 path_file_favicon = PROJECT_ROOT / "src/gui/streamlit/static/favicon" / "favicon.ico"
 
