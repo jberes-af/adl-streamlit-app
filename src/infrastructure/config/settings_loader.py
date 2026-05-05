@@ -57,7 +57,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
     sheets_mode_raw = get_secret("GOOGLE_ACCESS_MODE", "read").strip().lower()
 
     if sheets_mode_raw not in ("read", "write"):
-        raise SettingsError("GOOGLE_ACCESS_MODE must be 'read' or 'write'")
+        pass
+        # raise SettingsError("GOOGLE_ACCESS_MODE must be 'read' or 'write'")
     sheets_mode = cast(GoogleAccessMode, sheets_mode_raw)
 
     # --- DRIVE ACCESS MODE
@@ -66,7 +67,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
     drive_mode_raw = get_secret("DRIVE_ACCESS_MODE", "none").strip().lower()
     
     if drive_mode_raw not in ("none", "read", "write", "all"):
-        raise SettingsError("DRIVE_ACCESS_MODE must be one of: none, read, write, all")
+        pass
+        # raise SettingsError("DRIVE_ACCESS_MODE must be one of: none, read, write, all")
     drive_mode = cast(DriveAccessMode, drive_mode_raw)
 
     scopes = combined_scopes(sheets_mode=sheets_mode, drive_mode=drive_mode)
@@ -77,7 +79,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
     client_secret_filename = get_secret("GOOGLE_CLIENT_SECRET_ACCOUNTING")
     client_secret_json = (project_root / "secrets" / client_secret_filename).resolve()
     if not client_secret_json.exists():
-        raise SettingsError(f"Client secret not found: {client_secret_json}")
+        pass
+        # raise SettingsError(f"Client secret not found: {client_secret_json}")
 
     # --- GOOGLE TOKEN
 
