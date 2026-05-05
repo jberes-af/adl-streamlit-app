@@ -1,0 +1,132 @@
+/* /src/gui/streamlit/static/flow_diagram.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+.chart-card,
+.details-frame {
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  padding: 1rem;
+  background: white;
+}
+
+.chart-card {
+  margin-bottom: 1rem;
+}
+
+#chart svg {
+  max-width: 100%;
+  height: auto;
+  pointer-events: auto;
+}
+
+#chart .node {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.details-frame {
+  background: #f9fafb;
+}
+
+.details-frame h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.details-frame p {
+  margin-bottom: 1rem;
+}
+
+.details-images {
+  display: grid;
+  gap: 1rem;
+}
+
+.details-image {
+  width: 100%;
+  max-width: 310px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #dddddd;
+}
+
+.hidden {
+  display: none;
+}
+
+.details-frame details {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #ffffff;
+}
+
+.details-frame summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.details-frame pre {
+  overflow-x: auto;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.details-frame code {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 1.0rem;
+}
+
+.muted {
+  color: #666666;
+  font-style: italic;
+}
+
+.action-chip {
+  background: #1e88e5;
+  color: white;
+  border: none;
+}
+
+.data-object-card {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  background: #ffffff;
+}
+
+.data-object-description {
+  margin-bottom: 0.75rem;
+}
+
+.data-object-card details {
+  margin-top: 0.5rem;
+}
+
+.data-object-card summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.data-object-card pre {
+  overflow-x: auto;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+ul {
+    font-size: 1.1rem;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
