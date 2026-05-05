@@ -107,7 +107,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
     # drive_root = os.getenv("GOOGLE_DRIVE_ROOT_FOLDER_ID")
     drive_root = get_secret("GOOGLE_DRIVE_ROOT_FOLDER_ID")
     if drive_mode != "none" and not (drive_root and drive_root.strip()):
-        raise SettingsError("GOOGLE_DRIVE_ROOT_FOLDER_ID is required when DRIVE_ACCESS_MODE != 'none'")
+        pass
+        # raise SettingsError("GOOGLE_DRIVE_ROOT_FOLDER_ID is required when DRIVE_ACCESS_MODE != 'none'")
 
     # FIREBASE
 
