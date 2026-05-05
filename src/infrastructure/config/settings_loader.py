@@ -73,7 +73,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
 
     # --- OAUTH SECRETS FILE
 
-    client_secret_filename = _getenv_required("GOOGLE_CLIENT_SECRET_ACCOUNTING")
+    # client_secret_filename = _getenv_required("GOOGLE_CLIENT_SECRET_ACCOUNTING")
+    client_secret_filename = get_secret("GOOGLE_CLIENT_SECRET_ACCOUNTING")
     client_secret_json = (project_root / "secrets" / client_secret_filename).resolve()
     if not client_secret_json.exists():
         raise SettingsError(f"Client secret not found: {client_secret_json}")
@@ -94,7 +95,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
         token_json = (state_dir / token_default).resolve()
 
     spreadsheet_ids_by_file = {
-        "model_config": _getenv_required("SHEET_ID_CONFIG"),
+        "model_config": get_secret("SHEET_ID_CONFIG"),
+        # "model_config": _getenv_required("SHEET_ID_CONFIG"),
     }
 
     # GOOGLE DRIVE FOLDER
