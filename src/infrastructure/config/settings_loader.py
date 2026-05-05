@@ -62,7 +62,9 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
 
     # --- DRIVE ACCESS MODE
 
-    drive_mode_raw = os.getenv("DRIVE_ACCESS_MODE", "none").strip().lower()
+    # drive_mode_raw = os.getenv("DRIVE_ACCESS_MODE", "none").strip().lower()
+    drive_mode_raw = get_secret("DRIVE_ACCESS_MODE", "none").strip().lower()
+    
     if drive_mode_raw not in ("none", "read", "write", "all"):
         raise SettingsError("DRIVE_ACCESS_MODE must be one of: none, read, write, all")
     drive_mode = cast(DriveAccessMode, drive_mode_raw)
@@ -81,7 +83,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
     state_dir = (project_root / "state").resolve()
     state_dir.mkdir(parents=True, exist_ok=True)
 
-    raw_token = os.getenv("GOOGLE_TOKEN_JSON")
+    # raw_token = os.getenv("GOOGLE_TOKEN_JSON")
+    raw_token = get_secret("GOOGLE_TOKEN_JSON")
     if raw_token:
         token_path = Path(raw_token)
         token_json = (token_path if token_path.is_absolute() else (project_root / token_path)).resolve()
@@ -96,7 +99,8 @@ def load_settings_from_env(*, project_root: Path) -> Settings:
 
     # GOOGLE DRIVE FOLDER
 
-    drive_root = os.getenv("GOOGLE_DRIVE_ROOT_FOLDER_ID")
+    # drive_root = os.getenv("GOOGLE_DRIVE_ROOT_FOLDER_ID")
+    drive_root = get_secret("GOOGLE_DRIVE_ROOT_FOLDER_ID")
     if drive_mode != "none" and not (drive_root and drive_root.strip()):
         raise SettingsError("GOOGLE_DRIVE_ROOT_FOLDER_ID is required when DRIVE_ACCESS_MODE != 'none'")
 
